@@ -47,8 +47,11 @@ add_custom_command(
 	
 	# needed to create the files we'll use	
 	COMMAND ${FAKEROOT} dh_installdeb
+	
+	COMMAND ${FAKEROOT} dh_installinit
 
 	COMMAND touch ${CMAKE_CURRENT_BINARY_DIR}/dhtimestamp
+	COMMAND mkdir ${CMAKE_CURRENT_BINARY_DIR}/cmakedh
 	WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/..
 	DEPENDS ${DH_INPUT}
 	COMMENT "Running debhelpers"
